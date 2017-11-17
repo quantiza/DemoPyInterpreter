@@ -17,6 +17,7 @@
 
 
 import datetime
+import dis
 
 what_to_execute = {
     "instructions": [("LOAD_VALUE", 0),
@@ -82,8 +83,16 @@ class Interpreter(object):
             	bytecode_method(argument)
 
 
+# interpt = Interpreter()
+# interpt.run_code(what_to_execute)
 
-interpt = Interpreter()
-interpt.run_code(what_to_execute)
+def  cond():
+	x = 3
+	if x < 5:
+		return 'yes'
+	else:
+		return 'no'
 
-
+print list(bytearray(cond.__code__.co_code))
+print dis.dis(cond)
+print dis.opname[125]
